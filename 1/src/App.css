@@ -1,5 +1,5 @@
 .App {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .App-header {
@@ -10,34 +10,37 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: rgb(255, 0, 0);
+
 }
 
-
-.body {
+.home {
   display: flex;
-  height: 80vh;
+  height: 100vh;
   background-color: #28272b;
   color: white;
+  box-sizing: border-box;
+}
+.about{
+align-items: center;
+ margin-left: 5%;
+  font-size: larger;
+}
+.content {
+  width: 60%;
+  background-image: url(images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg);
+  background-size: cover;
+  border-radius: 40px;
+  margin:0% 5%;
 }
 
 .menu {
-  width: 15%;
-}
-
-.content {
-  width: 63%;
-  background-image: url(images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg);
-  background-size: cover;
-}
-
-h3 {
-  margin: 10%;
-  text-align: center;
-}
-
-h2 {
-  margin-left: 70%;
-  text-align: center;
+  padding: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #28272b;
+  color: white;
+  height: 100%;
 }
 
 .foodList {
@@ -65,11 +68,68 @@ button:hover {
   transform: scale(1.03);
 }
 
-.foodImg{
-    border-radius: 50px;
-  /* background-image: url(images/pexels-pablo-macedo-287472-845798.jpg); */
+.foodImg {
+  border-radius: 50px;
   width: 30%;
   height: 90%;
   background-size: cover;
 }
 
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  /* Light background color for the form */
+  text-align: center;
+}
+
+/* Styling the input fields */
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  /* Full width */
+  padding: 10px;
+  margin: 8px 0;
+  /* Space between fields */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* Rounded corners */
+  box-sizing: border-box;
+  /* Include padding and border in element's total width */
+}
+
+/* Styling the submit button */
+button[type="submit"] {
+  background-color: #6c572d;
+  /* Green background */
+  color: white;
+  /* White text */
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  /* Rounded corners */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  font-size: 16px;
+  /* Font size */
+}
+
+/* Button hover effect */
+button[type="submit"]:hover {
+  background-color: #ab925f;
+  /* Darker green on hover */
+}
+
+/* Additional styles for the FoodNames component (if needed) */
+.select-food {
+  margin-bottom: 15px;
+  /* Space below food selection */
+}
+li{
+margin:4%;
+}

@@ -35,7 +35,7 @@ export const Food = (props) => {
                     style={!isAvailable() ? { opacity: '50%', hover: 'none' } : {}}
                     onClick={alertIfOrdered}
                     className="orderButton"
-                >To Order </button>
+                >To Delete </button>
             </div>
 
 

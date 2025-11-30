@@ -1,12 +1,19 @@
 import './App.css';
-import { ExtendedMenu } from './components/ExtendedMenu';
-import { useState } from 'react';
+import { OrderList } from './components/OrderList';
+import { useState, useEffect } from 'react';
 import { getFoodList } from './data/foodList';
+import { foodItems, extendedItems } from './components/FoodNames';
 
 function App() {
 
-  const foodList = getFoodList();
-  const [showMenu, setShowMenu] = useState(false);
+  const [foodList, setFoodList] = useState([]);
+
+  useEffect(() => {
+    getFoodList().then(data => {
+      setFoodList(data);
+    });
+  }, []);
+  const [showMenu, setShowMenu] = useState(true);
 
   const showMenuClicked = () => {
     setShowMenu(!showMenu);
@@ -14,59 +21,80 @@ function App() {
 
   const [userDetails, setUserDetails] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
-const [userName,setUserName]=useState('');
+  const [userName, setUserName] = useState('');
   const [isNameVisible, setIsNameVisible] = useState(false);
 
   const showInputs = () => {
     setUserDetails(!userDetails);
     setIsButtonVisible(false);
-     setIsNameVisible(false);
+    setIsNameVisible(false);
   }
- 
+
   const saveInput = (e) => {
-   setUserName(e.target.value);
+    setUserName(e.target.value);
   }
 
   const removeInputs = () => {
     setUserDetails(false);
-    setIsButtonVisible(true);   
+    setIsButtonVisible(true);
     setIsNameVisible(true);
   }
 
-  const buttonName = showMenu ? 'extended menu' : 'menu';
+  const buttonName = showMenu ? 'extended menu' : 'reduced menu';
 
   return (
     <div className="App">
       <header className="App-header">  <Header /> { }
       </header>
-      <div className="body">
-        <div className='menu'><Menu color={{ color: '#ffe100ff' }} />{ }</div>
-        <div className="content"></div>
+
+      <div className="home">
         <div className='about'> <About color={{ color: '#ff4d00ff' }} />{ }</div>
+        <div className="content"></div>
+      </div>
+      <div className='menu'>
+        {<div>
+          <button onClick={showMenuClicked}> {buttonName} </button>
+          {showMenu ? (
+            <ul>
+              {foodItems.map((item, index) => (
+                <li key={index}>{item}</li> // Use food names directly here
+              ))}
+            </ul>
+          ) : (
+            <>
+              {extendedItems.map((category, categoryIndex) => (
+                <div key={categoryIndex}>
+                  <h3>{category.title}</h3>
+                  <ul>
+                    {category.names.map((name, nameIndex) => (
+                      <li key={nameIndex}>{name}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </>
+          )}
+        </div>}
       </div>
       <div>
+        
         {isButtonVisible && (
           <button onClick={showInputs}>{userDetails ? '' : 'fill your details'} </button>
         )}
         {userDetails &&
-          <>
-            <input type="text" onChange={saveInput} />name:
-            <input type="text" />mail:
+          <form>
+            <input type="text" onChange={saveInput} placeholder='name'/>
+            <br />
+            <input type="text" placeholder='email'/>
+            <br />
             <button onClick={removeInputs}>save</button>
-          </>}
-            {isNameVisible && <h1>Hello, {userName}!</h1>} 
+          </form>}
+        {isNameVisible && <h1>Hello, {userName}!</h1>}
       </div>
+<div>
+  <OrderList></OrderList>
+</div>
 
-      <div>
-        <button onClick={showMenuClicked}> {buttonName} </button>
-        {showMenu ? (
-          <ul>
-            {foodList.map((f, index) => (
-              <li key={index}>{f.description}</li> // Render each food item's description
-            ))}
-          </ul>
-        ) : <ExtendedMenu />}
-      </div>
     </div>
   );
 }
@@ -76,22 +104,10 @@ function Header() {
     <h1>pizza store</h1>
   );
 }
-function Menu(props) {
-  return (
-    <div className="menu">
-      <h2 style={props.color}>our delicious menu:</h2>
-      <ul>
-        <li>pizza</li>
-        <li>falafel</li>
-        <li>chips</li>
-        <li>tost</li>
-        <li>baget</li>
-      </ul>
-    </div>)
-}
+
 function About(props) {
   return (
-    <div>
+    <div className='about'>
       <h3 style={props.color}>
         over 50 years with the best service! <br></br>
         why to choose us?  </h3>
@@ -107,6 +123,5 @@ function About(props) {
 }
 
 export { Header };
-export { Menu };
 export { About };
 export default App;

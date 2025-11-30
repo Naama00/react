@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { getFoodList, addNewOrder } from '../data/foodList';
 import { Food } from './Food';
-import { nanoid } from 'nanoid';
 import { format } from 'date-fns';
 import { FoodNames } from './FoodNames';
 
-export const ExtendedMenu = () => {
+export const OrderList = () => {
+       const [orderId, setOrderId] = useState(4);
     const [foodList, setFoodList] = useState([]);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export const ExtendedMenu = () => {
     const addOrder = (event) => {
         event.preventDefault();
         const newOrder = {
-            id: 6,
+            id:orderId,
             description: event.target.description.value,
             ordersAmount: event.target.quantity.value,
             lastOrderDate: format(new Date(), 'yyyy-MM-dd'),
@@ -27,11 +27,12 @@ export const ExtendedMenu = () => {
         addNewOrder(newOrder).then(data => {
             setFoodList(data); // Update food list
         });
+        setOrderId(orderId+1);
     }
 
     return (
         <>
-            <h2>Extended Menu</h2>
+            <h2>Orders List</h2>
             <form onSubmit={addOrder}>
                 <FoodNames />
                 <br />
