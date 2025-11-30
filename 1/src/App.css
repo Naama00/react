@@ -1,0 +1,75 @@
+.App {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.App-header {
+  background-color: #28272b;
+  min-height: 20vh;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(255, 0, 0);
+}
+
+
+.body {
+  display: flex;
+  height: 80vh;
+  background-color: #28272b;
+  color: white;
+}
+
+.menu {
+  width: 15%;
+}
+
+.content {
+  width: 63%;
+  background-image: url(images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg);
+  background-size: cover;
+}
+
+h3 {
+  margin: 10%;
+  text-align: center;
+}
+
+h2 {
+  margin-left: 70%;
+  text-align: center;
+}
+
+.foodList {
+  color: rgb(69, 69, 69);
+  display: flex;
+  margin: 10%;
+  border-radius: 50px;
+  background-color: rgb(219, 217, 217);
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(69, 69, 69);
+  color: white;
+  border-radius: 15px;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(147, 147, 147);
+  transform: scale(1.03);
+}
+
+.foodImg{
+    border-radius: 50px;
+  /* background-image: url(images/pexels-pablo-macedo-287472-845798.jpg); */
+  width: 30%;
+  height: 90%;
+  background-size: cover;
+}
+
