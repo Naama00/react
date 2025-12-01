@@ -27,7 +27,7 @@ align-items: center;
 }
 .content {
   width: 60%;
-  background-image: url(images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg);
+  background-image: url(data/images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg);
   background-size: cover;
   border-radius: 40px;
   margin:0% 5%;
@@ -38,8 +38,6 @@ align-items: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #28272b;
-  color: white;
   height: 100%;
 }
 
@@ -132,4 +130,7 @@ button[type="submit"]:hover {
 }
 li{
 margin:4%;
+}
+#orderList{
+  text-align: center;
 }

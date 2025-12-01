@@ -1,16 +1,18 @@
-
+import image1 from '../data/images/pexels-pablo-macedo-287472-845798.jpg';
+import image2 from '../data/images/pexels-sydney-troxell-223521-708587.jpg';
+import image3 from '../data/images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg';
 export const foodList = [
     {
         id: 1,
         description: "classic Pizza",
-        image: "src/images/pexels-pablo-macedo-287472-845798.jpg",
+        image: image1,
         ordersAmount: 14,
         lastOrderDate: '2025-11-11',
         isAvailable: false
     }, {
         id: 2,
-        description: "Italic Pizza",
-        image: "images/pexels-sydney-troxell-223521-708587.jpg",
+        description: "Italian Pizza",
+        image: image2,
         ordersAmount: 8,
         lastOrderDate: '2025-11-10',
         isAvailable: false
@@ -18,7 +20,7 @@ export const foodList = [
     {
         id: 3,
         description: "Baggettost",
-        image: "images/pexels-pablo-macedo-287472-845798.jpg",
+        image: image3,
         ordersAmount: 22,
         lastOrderDate: '2025-11-08',
         isAvailable: true

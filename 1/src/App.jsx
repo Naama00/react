@@ -77,24 +77,24 @@ function App() {
         </div>}
       </div>
       <div>
-        
         {isButtonVisible && (
-          <button onClick={showInputs}>{userDetails ? '' : 'fill your details'} </button>
+          <><div style={{textAlign:'center',margin:'5% 0%'}}><button onClick={showInputs}>{userDetails ? '' : 'insert your details'} </button></div></>
         )}
         {userDetails &&
           <form>
-            <input type="text" onChange={saveInput} placeholder='name'/>
+            <input type="text" onChange={saveInput} placeholder='name' />
             <br />
-            <input type="text" placeholder='email'/>
+            <input type="text" placeholder='email' />
             <br />
             <button onClick={removeInputs}>save</button>
           </form>}
-        {isNameVisible && <h1>Hello, {userName}!</h1>}
+        { isNameVisible && <><div style={{textAlign:'center'}}>
+       <h1>Hello, {userName}!</h1>
+      </div> </> }
       </div>
-<div>
-  <OrderList></OrderList>
-</div>
-
+      <div>
+        <OrderList></OrderList>
+      </div>
     </div>
   );
 }
