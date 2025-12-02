@@ -19,8 +19,8 @@ export const OrderList = () => {
         const selectedFoodName = event.target.description.value;
         const allFoodNames = extendedItems.flatMap(category => category.names);
         const foodIndex = allFoodNames.indexOf(selectedFoodName);
-if(foodIndex===null)
-    return;
+        if (foodIndex === -1) return;
+
         const newOrder = {
             id: orderId,
             description: event.target.description.value,
@@ -28,31 +28,32 @@ if(foodIndex===null)
             ordersAmount: event.target.amount.value,
             lastOrderDate: format(new Date(), 'yyyy-MM-dd'),
             isAvailable: true
-        }
+        };
+
         event.target.reset();
-        addNewOrder(newOrder).then(data => {
-            setFoodList(data);
-        });
+        setFoodList(prevFoodList => [...prevFoodList, newOrder]);
         setOrderId(orderId + 1);
-    }
+    };
+
+    const deleteOrder = (idToDelete) => {
+        setFoodList(prevFoodList => prevFoodList.filter(f => f.id !== idToDelete)); 
+    };
 
     return (
         <div id='orderList'>
             <h2>Exist Orders</h2>
-          
             <ul style={{ listStyleType: 'none' }}>
                 {foodList.map(f => (
-                    <Food key={f.id} food={f} />
+                    <Food key={f.id} food={f} deleteOrder={deleteOrder} /> // Pass deleteOrder as prop
                 ))}
-            </ul> 
-             <form onSubmit={addOrder}>
-                <FoodNames/>
+            </ul>
+            <form onSubmit={addOrder}>
+                <FoodNames />
                 <br />
-                <input type="number" name='amount' placeholder='amount' required /> <br />
+                <input type="number" name="amount" placeholder="amount" required /> <br />
                 <br />
-                <button type="submit" >Add New Order</button>
+                <button type="submit">Add New Order</button>
             </form>
         </div>
     );
 }
-

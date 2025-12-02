@@ -1,8 +1,22 @@
+import React, { useState, useEffect } from 'react';
+import { getFoodList } from '../data/foodList';
 
 export const Food = (props) => {
+    const { food, deleteOrder } = props;
 
-    const { food } = props;
+
+    const [foodList, setFoodList] = useState([]);
+
+    useEffect(() => {
+        const fetchFoodList = async () => {
+            const data = await getFoodList();
+            setFoodList(data);
+        };
+        fetchFoodList();
+    }, []);
+
     if (!food) return null;
+
 
     const isPopular = () => {
         const lastOrderDate = new Date(food.lastOrderDate);
@@ -17,10 +31,6 @@ export const Food = (props) => {
         return food.isAvailable;
     };
 
- const deleteOrder=()=>{
-
- }
-
     return (
         <div className="foodList" style={isBigOrdersAmount() ? { backgroundColor: '#b69c95ff' } : {}}>
             <div><h1>{food.id}</h1></div>
@@ -30,7 +40,7 @@ export const Food = (props) => {
             <div style={{ width: '50px' }}>{isPopular() && <h2>👑 popular food 👑</h2>}</div>
             <div>
                 <button
-                onClick={deleteOrder}
+                    onClick={() => deleteOrder(food.id)}
                     disabled={!isAvailable()}
                     style={{ opacity: isAvailable() ? 1 : 0.5 }}
                     className="deleteButton">To Delete
@@ -39,4 +49,3 @@ export const Food = (props) => {
         </div>
     );
 }
-
