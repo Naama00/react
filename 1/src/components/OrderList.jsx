@@ -32,6 +32,7 @@ export const OrderList = () => {
 
         event.target.reset();
         setFoodList(prevFoodList => [...prevFoodList, newOrder]);
+        // alert('order was added successfully.');
         setOrderId(orderId + 1);
     };
 
@@ -44,13 +45,13 @@ export const OrderList = () => {
             <h2>Exist Orders</h2>
             <ul style={{ listStyleType: 'none' }}>
                 {foodList.map(f => (
-                    <Food key={f.id} food={f} deleteOrder={deleteOrder} /> // Pass deleteOrder as prop
+                    <Food key={f.id} food={f} deleteOrder={deleteOrder} />
                 ))}
             </ul>
             <form onSubmit={addOrder}>
                 <FoodNames />
                 <br />
-                <input type="number" name="amount" placeholder="amount" required /> <br />
+                <input type="number" name="amount" placeholder="amount" required min="1"/> <br />
                 <br />
                 <button type="submit">Add New Order</button>
             </form>

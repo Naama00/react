@@ -1,6 +1,6 @@
-import image1 from '../data/images/pexels-pablo-macedo-287472-845798.jpg';
+import image1 from '../data/images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg';
 import image2 from '../data/images/pexels-sydney-troxell-223521-708587.jpg';
-import image3 from '../data/images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg';
+import image3 from '../data/images/pexels-narda-yescas-724842-1566837.jpg';
 import image4 from '../data/images/pexels-pixabay-416528.jpg'
 import image5 from '../data/images/pexels-chiecharon-1193335.jpg'
 import image6 from '../data/images/pexels-pixabay-414555.jpg'
@@ -22,7 +22,7 @@ export const foodItems = [
 export const extendedItems = [
     {
         title: "Pizzas",
-        names: ["Italian Pizza", "American Pizza", "Chinese Pizza"]
+        names: ["American Pizza", "Italian Pizza", "Chinese Pizza"]
     },
     {
         title: "Drinks",
@@ -34,7 +34,7 @@ export const extendedItems = [
     }
 ];
 export const foodImages = [
-    image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12,image13, image14
+    image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14
 ]
 export const FoodNames = () => {
     return (

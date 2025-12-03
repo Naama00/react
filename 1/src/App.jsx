@@ -110,7 +110,7 @@ function About(props) {
     <div className='about'>
       <h3 style={props.color}>
         over 50 years with the best service! <br></br>
-        why to choose us?  </h3>
+        why choose us?  </h3>
       <ul>
         <li>best food</li>
         <li>freshness</li>

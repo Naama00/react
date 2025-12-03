@@ -37,7 +37,9 @@ export const Food = (props) => {
             <div><h1>{food.description}</h1></div>
             <div className="foodImg" style={{ backgroundImage: food.image ? `url(${food.image})` : 'none' }} />
             <div><h5>amount: </h5>{food.ordersAmount}</div>
-            <div style={{ width: '50px' }}>{isPopular() && <h2>👑 popular food 👑</h2>}</div>
+   <div style={{width: '50px'}}>
+    {isPopular() && <h2>👑 popular food 👑</h2>}
+</div>
             <div>
                 <button
                     onClick={() => deleteOrder(food.id)}
@@ -46,6 +48,6 @@ export const Food = (props) => {
                     className="deleteButton">To Delete
                 </button>
             </div>
-        </div>
+        </div >
     );
 }

@@ -52,19 +52,6 @@ align-items: center;
   height: 200px;
 }
 
-button {
-  width: 150px;
-  height: 50px;
-  background-color: rgb(69, 69, 69);
-  color: white;
-  border-radius: 15px;
-  border: none;
-}
-
-button:hover {
-  background-color: rgb(147, 147, 147);
-  transform: scale(1.03);
-}
 
 .foodImg {
   border-radius: 50px;
@@ -81,52 +68,39 @@ form {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  /* Light background color for the form */
   text-align: center;
 }
 
-/* Styling the input fields */
-input[type="number"],
-input[type="text"],
+
+input,
 select {
   width: 100%;
-  /* Full width */
   padding: 10px;
   margin: 8px 0;
-  /* Space between fields */
   border: 1px solid #ccc;
   border-radius: 4px;
-  /* Rounded corners */
   box-sizing: border-box;
-  /* Include padding and border in element's total width */
 }
 
-/* Styling the submit button */
-button[type="submit"] {
-  background-color: #6c572d;
-  /* Green background */
+button {
+ width: 150px;
+ height: 50px;
+  background-color:rgb(69, 69, 69);
   color: white;
-  /* White text */
   padding: 10px;
   border: none;
   border-radius: 10px;
-  /* Rounded corners */
   cursor: pointer;
-  /* Pointer cursor on hover */
   font-size: 16px;
-  /* Font size */
 }
 
-/* Button hover effect */
-button[type="submit"]:hover {
-  background-color: #ab925f;
-  /* Darker green on hover */
+button:hover {
+  background-color: #999999;
+    transform: scale(1.03);
 }
 
-/* Additional styles for the FoodNames component (if needed) */
 .select-food {
   margin-bottom: 15px;
-  /* Space below food selection */
 }
 li{
 margin:4%;

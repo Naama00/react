@@ -1,6 +1,6 @@
-import image1 from '../data/images/pexels-pablo-macedo-287472-845798.jpg';
+import image1 from '../data/images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg';
 import image2 from '../data/images/pexels-sydney-troxell-223521-708587.jpg';
-import image3 from '../data/images/top-view-whole-pepperoni-pizza-with-sesame-sprinkles-top.jpg';
+import image3 from '../data/images/pexels-suzyhazelwood-2966196.jpg';
 export const foodList = [
     {
         id: 1,
@@ -19,7 +19,7 @@ export const foodList = [
     },
     {
         id: 3,
-        description: "Baggettost",
+        description: "Chips",
         image: image3,
         ordersAmount: 22,
         lastOrderDate: '2025-11-08',
