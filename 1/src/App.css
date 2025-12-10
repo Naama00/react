@@ -44,7 +44,7 @@ align-items: center;
 .foodList {
   color: rgb(69, 69, 69);
   display: flex;
-  margin: 10%;
+  margin: 5%;
   border-radius: 50px;
   background-color: rgb(219, 217, 217);
   justify-content: space-around;

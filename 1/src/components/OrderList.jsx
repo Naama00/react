@@ -7,11 +7,22 @@ import { FoodNames, foodImages, extendedItems } from './FoodNames';
 export const OrderList = () => {
     const [orderId, setOrderId] = useState(4);
     const [foodList, setFoodList] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
+    const loadOrders = async () => {
+        try {
+            const foodList = await getFoodList();
+            setFoodList(foodList);
+        } catch (error) {
+            console.log('Error loading food list', error);
+            setError(true);
+        } finally {
+            setLoading(false);
+        }
+    }
     useEffect(() => {
-        getFoodList().then(data => {
-            setFoodList(data);
-        });
+        loadOrders();
     }, []);
 
     const addOrder = (event) => {
@@ -37,7 +48,7 @@ export const OrderList = () => {
     };
 
     const deleteOrder = (idToDelete) => {
-        setFoodList(prevFoodList => prevFoodList.filter(f => f.id !== idToDelete)); 
+        setFoodList(prevFoodList => prevFoodList.filter(f => f.id !== idToDelete));
     };
 
     return (
@@ -51,7 +62,7 @@ export const OrderList = () => {
             <form onSubmit={addOrder}>
                 <FoodNames />
                 <br />
-                <input type="number" name="amount" placeholder="amount" required min="1"/> <br />
+                <input type="number" name="amount" placeholder="amount" required min="1" /> <br />
                 <br />
                 <button type="submit">Add New Order</button>
             </form>
