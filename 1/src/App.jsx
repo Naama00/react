@@ -48,7 +48,7 @@ function App() {
       </header>
 
       <div className="home">
-        <div className='about'> <About color={{ color: '#ff4d00ff' }} />{ }</div>
+        <div className='about'> <About color={{ color: '#d4a574' }} />{ }</div>
         <div className="content"></div>
       </div>
       <div className='menu'>
